@@ -1,16 +1,31 @@
 Package: mhcnuggetsrinstall
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Title: Install MHCnuggets
+Version: 0.1
+Authors@R: c(
+    person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")))
+Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
+Description: 
+    'MHCnuggets' (<https://github.com/KarchinLab/mhcnuggets>) is a Python
+    tool to predict MHC class I and MHC class II epitopes.
+    mhcnuggetsr is a tool to work with 'MHCnuggets'.
+    This package allows one to install and uninstall MHCnuggets from R.
+License: GPL-3
+Imports:
+    devtools,
+    mhcnuggetsr,
+    rappdirs,
+    reticulate,
+    stringr,
+    tibble
+Suggests: 
+    knitr,
+    markdown,
+    testthat,
+    rmarkdown
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+URL: https://github.com/richelbilderbeek/mhcnuggetsr/
+BugReports: https://github.com/richelbilderbeek/mhcnuggetsr
+Language: en-US
+VignetteBuilder: knitr
