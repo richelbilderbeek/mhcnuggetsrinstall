@@ -14,6 +14,6 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 downgrade_pip <- function(version = "9.0.0") {
-  mhcnuggetsr::set_pip_version(version)
+  mhcnuggetsrinstall::set_pip_version(version)
 
 }

@@ -16,8 +16,8 @@ set_is_mhcnuggets_installed <- function(
   )
   if (is_installed == is_cur_installed) return()
   if (is_installed) {
-    mhcnuggetsr::install_mhcnuggets()
+    mhcnuggetsrinstall::install_mhcnuggets()
   } else {
-    mhcnuggetsr::uninstall_mhcnuggets()
+    mhcnuggetsrinstall::uninstall_mhcnuggets()
   }
 }
