@@ -1,4 +1,23 @@
 test_that("use", {
+  folder_name <- tempfile()
+  expect_false(mhcnuggetsr::is_mhcnuggets_installed(folder_name = folder_name))
+  install_mhcnuggets(folder_name = folder_name)
+  expect_true(mhcnuggetsr::is_mhcnuggets_installed(folder_name = folder_name))
+  expect_error(
+    install_mhcnuggets(folder_name = folder_name),
+    "MHCnuggets is already installed"
+  )
+  uninstall_mhcnuggets(folder_name = folder_name)
+  expect_false(mhcnuggetsr::is_mhcnuggets_installed(folder_name = folder_name))
+
+  expect_error(
+    uninstall_mhcnuggets(folder_name = folder_name),
+    "Cannot uninstall absent MHCnuggets"
+  )
+
+})
+
+test_that("use", {
   if (!mhcnuggetsr::is_on_ci()) return()
   if (!mhcnuggetsr::is_mhcnuggets_installed()) return()
 

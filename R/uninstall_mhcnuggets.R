@@ -6,6 +6,16 @@ uninstall_mhcnuggets <- function(
   folder_name = mhcnuggetsr::get_default_mhcnuggets_folder(),
   mhcnuggets_url = mhcnuggetsr::get_mhcnuggets_url()
 ) {
+  if (!mhcnuggetsr::is_mhcnuggets_installed(
+      folder_name = folder_name,
+      mhcnuggets_url = mhcnuggets_url
+    )
+  ) {
+    stop(
+      "Cannot uninstall absent MHCnuggets from folder '",
+      folder_name, "'"
+    )
+  }
   mhcnuggetsr::check_mhcnuggets_installation(
     folder_name = folder_name,
     mhcnuggets_url = mhcnuggets_url
