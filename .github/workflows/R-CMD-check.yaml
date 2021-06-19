@@ -49,7 +49,7 @@ jobs:
       - name: Install MHCnuggets
         env:
           INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsrinstall::install_mhcnuggetsr()'; fi
+        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets()'; fi
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
