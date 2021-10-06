@@ -53,6 +53,13 @@ install_mhcnuggets <- function(
     )
   )
 
+  # Install testresources
+  system2(
+    reticulate::py_config()$python,
+    args = c(
+      "-m", "pip", "install", "testresources", "--quiet"
+    )
+  )
 
   # Install setuptools
   system2(
