@@ -40,40 +40,53 @@ install_mhcnuggets <- function(
   }
   testthat::expect_true(dir.exists(mhcnuggets_folder))
 
-  # Update pip
-  mhcnuggetsrinstall::install_pip()
-  testthat::expect_true(mhcnuggetsr::is_pip_installed())
-  mhcnuggetsrinstall::upgrade_pip()
+  if (1 == 1) {
+    ormr::install_python_packages(
+      ormr_folder_name = mhcnuggetsr::get_default_mhcnuggets_folder(),
+      package_names = c(
+        "pyasn1",
+        "testresources",
+        "setuptools",
+        "mhcnuggets"
+      ),
+      python_version = "2.7"
 
-  # Update pyasn1
-  system2(
-    reticulate::py_config()$python,
-    args = c(
-      "-m", "pip", "install", "--upgrade", "pyasn1", "--quiet"
     )
-  )
+  } else {
+    # Update pip
+    mhcnuggetsrinstall::install_pip()
+    testthat::expect_true(mhcnuggetsr::is_pip_installed())
+    mhcnuggetsrinstall::upgrade_pip()
 
-  # Install testresources
-  system2(
-    reticulate::py_config()$python,
-    args = c(
-      "-m", "pip", "install", "testresources", "--quiet"
+    # Update pyasn1
+    system2(
+      reticulate::py_config()$python,
+      args = c(
+        "-m", "pip", "install", "--upgrade", "pyasn1", "--quiet"
+      )
     )
-  )
 
-  # Install setuptools
-  system2(
-    reticulate::py_config()$python,
-    args = c(
-      "-m", "pip", "install", "setuptools", "--quiet"
+    # Install testresources
+    system2(
+      reticulate::py_config()$python,
+      args = c(
+        "-m", "pip", "install", "testresources", "--quiet"
+      )
     )
-  )
 
-  # Install mhcnuggets
-  system2(
-    reticulate::py_config()$python,
-    args = c(
-      "-m", "pip", "install", "mhcnuggets", "--quiet"
+    # Install setuptools
+    system2(
+      reticulate::py_config()$python,
+      args = c(
+        "-m", "pip", "install", "setuptools", "--quiet"
+      )
     )
-  )
+    # Install mhcnuggets
+    system2(
+      reticulate::py_config()$python,
+      args = c(
+        "-m", "pip", "install", "mhcnuggets", "--quiet"
+      )
+    )
+  }
 }
