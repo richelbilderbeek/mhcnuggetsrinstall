@@ -40,58 +40,9 @@ install_mhcnuggets <- function(
   }
   testthat::expect_true(dir.exists(mhcnuggets_folder))
 
-  if (1 == 1) {
-    ormr::install_python_package(
-      ormr_folder_name = rappdirs::user_data_dir(appname = "mhcnuggetsr"),
-      package_name = "mhcnuggets",
-      channel = "bioconda"
-    )
-    if (1 == 2) {
-      ormr::install_python_package(
-        ormr_folder_name = rappdirs::user_data_dir(appname = "mhcnuggetsr"),
-        package_name = c(
-          "pyasn1",
-          "testresources",
-          "setuptools",
-          "mhcnuggets"
-        )
-      )
-    }
-  } else {
-    # Update pip
-    mhcnuggetsrinstall::install_pip()
-    testthat::expect_true(mhcnuggetsr::is_pip_installed())
-    mhcnuggetsrinstall::upgrade_pip()
-
-    # Update pyasn1
-    system2(
-      reticulate::py_config()$python,
-      args = c(
-        "-m", "pip", "install", "--upgrade", "pyasn1", "--quiet"
-      )
-    )
-
-    # Install testresources
-    system2(
-      reticulate::py_config()$python,
-      args = c(
-        "-m", "pip", "install", "testresources", "--quiet"
-      )
-    )
-
-    # Install setuptools
-    system2(
-      reticulate::py_config()$python,
-      args = c(
-        "-m", "pip", "install", "setuptools", "--quiet"
-      )
-    )
-    # Install mhcnuggets
-    system2(
-      reticulate::py_config()$python,
-      args = c(
-        "-m", "pip", "install", "mhcnuggets", "--quiet"
-      )
-    )
-  }
+  ormr::install_python_package(
+    ormr_folder_name = rappdirs::user_data_dir(appname = "mhcnuggetsr"),
+    package_name = "mhcnuggets",
+    channel = "bioconda"
+  )
 }
