@@ -7,6 +7,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 uninstall_pip <- function() {
+  stop("Use 'ormr'")
   system2(
     reticulate::py_config()$python,
     args = c(

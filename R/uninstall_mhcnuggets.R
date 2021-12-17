@@ -22,11 +22,15 @@ uninstall_mhcnuggets <- function(
   )
 
   # Uninstall the pip package
-  system2(
-    reticulate::py_config()$python,
-    args = c("-m", "pip", "uninstall", "mhcnuggets", "--yes"),
-    stdout = TRUE
-  )
+  if (1 == 1) {
+    # TODO: let 'ormr' handle this as well
+  } else {
+      system2(
+      reticulate::py_config()$python,
+      args = c("-m", "pip", "uninstall", "mhcnuggets", "--yes"),
+      stdout = TRUE
+    )
+  }
 
   # Delete folder
   mhcnuggets_folder <- file.path(folder_name, basename(mhcnuggets_url))

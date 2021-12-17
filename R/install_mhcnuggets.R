@@ -41,17 +41,22 @@ install_mhcnuggets <- function(
   testthat::expect_true(dir.exists(mhcnuggets_folder))
 
   if (1 == 1) {
-    ormr::install_python_packages(
-      ormr_folder_name = mhcnuggetsr::get_default_mhcnuggets_folder(),
-      package_names = c(
-        "pyasn1",
-        "testresources",
-        "setuptools",
-        "mhcnuggets"
-      ),
-      python_version = "2.7"
-
+    ormr::install_python_package(
+      ormr_folder_name = rappdirs::user_data_dir(appname = "mhcnuggetsr"),
+      package_name = "mhcnuggets",
+      channel = "bioconda"
     )
+    if (1 == 2) {
+      ormr::install_python_package(
+        ormr_folder_name = rappdirs::user_data_dir(appname = "mhcnuggetsr"),
+        package_name = c(
+          "pyasn1",
+          "testresources",
+          "setuptools",
+          "mhcnuggets"
+        )
+      )
+    }
   } else {
     # Update pip
     mhcnuggetsrinstall::install_pip()

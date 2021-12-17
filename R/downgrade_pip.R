@@ -14,6 +14,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 downgrade_pip <- function(version = "9.0.0") {
+  stop("Use 'ormr'")
   mhcnuggetsrinstall::set_pip_version(version)
 
 }

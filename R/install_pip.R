@@ -14,6 +14,7 @@ install_pip <- function(
     "temp_install_pip.py"
   )
 ) {
+  stop("Use 'ormr'")
   dir.create(
     dirname(python_script_filename),
     showWarnings = FALSE,

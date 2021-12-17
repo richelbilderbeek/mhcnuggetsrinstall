@@ -1,4 +1,5 @@
 test_that("use", {
+  skip("Use 'ormr'")
   folder_name <- tempfile()
   expect_false(mhcnuggetsr::is_mhcnuggets_installed(folder_name = folder_name))
   install_mhcnuggets(folder_name = folder_name)
@@ -17,7 +18,7 @@ test_that("use", {
 
 })
 
-test_that("use", {
+test_that("regular use", {
   if (!mhcnuggetsr::is_on_ci()) return()
   if (!mhcnuggetsr::is_mhcnuggets_installed()) return()
 
@@ -28,6 +29,7 @@ test_that("use", {
 })
 
 test_that("install in different folder", {
+  skip("Use 'ormr'")
   if (!mhcnuggetsr::is_on_ci()) return()
   if (!mhcnuggetsr::is_mhcnuggets_installed()) return()
 
@@ -64,6 +66,7 @@ test_that("install in different folder", {
 })
 
 test_that("install in different folder", {
+  skip("Use 'ormr'")
   if (!mhcnuggetsr::is_on_ci()) return()
 
   if (mhcnuggetsr::is_mhcnuggets_installed()) {
