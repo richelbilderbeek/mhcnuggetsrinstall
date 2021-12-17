@@ -15,3 +15,4 @@ As `MHCnuggets` uses Python 2.7.
 
 There is [an MHCnuggets feature request to use Python 3](https://github.com/KarchinLab/mhcnuggets/issues/16),
 as [using  Python 3 with MHCnuggets fails](https://github.com/KarchinLab/mhcnuggets/issues/27).
+
