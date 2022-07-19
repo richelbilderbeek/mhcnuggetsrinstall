@@ -7,8 +7,7 @@ uninstall_mhcnuggets <- function(
   mhcnuggets_url = mhcnuggetsr::get_mhcnuggets_url()
 ) {
   if (!mhcnuggetsr::is_mhcnuggets_installed(
-      folder_name = folder_name,
-      mhcnuggets_url = mhcnuggets_url
+      mhcnuggetsr_folder = folder_name
     )
   ) {
     stop(
@@ -17,8 +16,8 @@ uninstall_mhcnuggets <- function(
     )
   }
   mhcnuggetsr::check_mhcnuggets_installation(
-    folder_name = folder_name,
-    mhcnuggets_url = mhcnuggets_url
+    mhcnuggetsr_folder = folder_name,
+    ormr_folder_name = folder_name
   )
 
   # Uninstall the pip package

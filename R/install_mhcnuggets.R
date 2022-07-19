@@ -13,8 +13,7 @@ install_mhcnuggets <- function(
 ) {
   if (
     mhcnuggetsr::is_mhcnuggets_installed(
-      folder_name = folder_name,
-      mhcnuggets_url = mhcnuggets_url
+      mhcnuggetsr_folder = folder_name
     )
   ) {
     stop("MHCnuggets is already installed in folder '", folder_name, "'")
@@ -41,8 +40,7 @@ install_mhcnuggets <- function(
   testthat::expect_true(dir.exists(mhcnuggets_folder))
 
   ormr::install_python_package(
-    ormr_folder_name = rappdirs::user_data_dir(appname = "mhcnuggetsr"),
-    package_name = "mhcnuggets",
-    channel = "bioconda"
+    ormr_folder_name = "python3",
+    package_name = "mhcnuggets"
   )
 }
