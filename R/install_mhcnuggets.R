@@ -13,7 +13,7 @@ install_mhcnuggets <- function(
 ) {
   if (
     mhcnuggetsr::is_mhcnuggets_installed(
-      mhcnuggetsr_folder = folder_name
+      folder_name = folder_name
     )
   ) {
     stop("MHCnuggets is already installed in folder '", folder_name, "'")

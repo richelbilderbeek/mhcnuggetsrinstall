@@ -7,7 +7,7 @@ uninstall_mhcnuggets <- function(
   mhcnuggets_url = mhcnuggetsr::get_mhcnuggets_url()
 ) {
   if (!mhcnuggetsr::is_mhcnuggets_installed(
-      mhcnuggetsr_folder = folder_name
+    folder_name = folder_name
     )
   ) {
     stop(
@@ -16,20 +16,16 @@ uninstall_mhcnuggets <- function(
     )
   }
   mhcnuggetsr::check_mhcnuggets_installation(
-    mhcnuggetsr_folder = folder_name,
-    ormr_folder_name = folder_name
+    folder_name = folder_name,
+    mhcnuggets_url = mhcnuggets_url
   )
 
   # Uninstall the pip package
-  if (1 == 1) {
-    # TODO: let 'ormr' handle this as well
-  } else {
-      system2(
-      reticulate::py_config()$python,
-      args = c("-m", "pip", "uninstall", "mhcnuggets", "--yes"),
-      stdout = TRUE
-    )
-  }
+  system2(
+    "python3",
+    args = c("-m", "pip", "uninstall", "mhcnuggets", "--yes"),
+    stdout = TRUE
+  )
 
   # Delete folder
   mhcnuggets_folder <- file.path(folder_name, basename(mhcnuggets_url))
