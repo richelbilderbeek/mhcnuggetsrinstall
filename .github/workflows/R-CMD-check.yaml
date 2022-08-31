@@ -11,6 +11,7 @@ name: R-CMD-check
 jobs:
   check_package:
     strategy:
+      fail-fast: false
       matrix:
         include:
           - install_mhcnuggets: "true" 
