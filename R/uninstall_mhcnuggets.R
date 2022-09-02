@@ -7,7 +7,7 @@ uninstall_mhcnuggets <- function(
   mhcnuggets_url = mhcnuggetsr::get_mhcnuggets_url()
 ) {
   if (!mhcnuggetsr::is_mhcnuggets_installed(
-    folder_name = folder_name
+    mhcnuggetsr_folder = folder_name
     )
   ) {
     stop(
