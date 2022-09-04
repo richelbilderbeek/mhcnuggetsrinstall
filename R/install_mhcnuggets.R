@@ -37,7 +37,7 @@ install_mhcnuggets <- function(
     )
     setwd(curwd)
   }
-  testthat::expect_true(dir.exists(mhcnuggets_folder))
+  testthat::expect_true(dir.exists(folder_name))
 
   ormr::install_python_package(
     ormr_folder_name = "python3",
