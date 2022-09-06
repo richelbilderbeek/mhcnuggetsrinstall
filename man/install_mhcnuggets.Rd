@@ -5,7 +5,7 @@
 \title{Install the \code{MHCnuggets} \code{Python} package.}
 \usage{
 install_mhcnuggets(
-  mhcnuggetsr_folder = mhcnuggetsr::get_default_mhcnuggets_folder(),
+  mhcnuggetsr_folder = mhcnuggetsr::get_default_mhcnuggetsr_folder(),
   mhcnuggets_url = mhcnuggetsr::get_mhcnuggets_url()
 )
 }

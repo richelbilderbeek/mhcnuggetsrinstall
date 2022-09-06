@@ -11,10 +11,22 @@ test_that("regular use", {
 test_that("install in different folder", {
   if (!mhcnuggetsr::is_on_ci()) return()
 
-  if (mhcnuggetsr::is_mhcnuggets_installed()) {
-    expect_error(
-      install_mhcnuggets(),
-      "MHCnuggets is already installed"
+  mhcnuggetsr_folder <- tempfile()
+  expect_false(
+    mhcnuggetsr::is_mhcnuggets_installed(
+      mhcnuggetsr_folder = mhcnuggetsr_folder
     )
-  }
+  )
+  install_mhcnuggets(mhcnuggetsr_folder = mhcnuggetsr_folder)
+  expect_true(
+    mhcnuggetsr::is_mhcnuggets_installed(
+      mhcnuggetsr_folder = mhcnuggetsr_folder
+    )
+  )
+  uninstall_mhcnuggets(mhcnuggetsr_folder = mhcnuggetsr_folder)
+  expect_false(
+    mhcnuggetsr::is_mhcnuggets_installed(
+      mhcnuggetsr_folder = mhcnuggetsr_folder
+    )
+  )
 })

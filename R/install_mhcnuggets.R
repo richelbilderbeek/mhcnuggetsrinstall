@@ -8,7 +8,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 install_mhcnuggets <- function(
-  mhcnuggetsr_folder = mhcnuggetsr::get_default_mhcnuggets_folder(),
+  mhcnuggetsr_folder = mhcnuggetsr::get_default_mhcnuggetsr_folder(),
   mhcnuggets_url = mhcnuggetsr::get_mhcnuggets_url()
 ) {
   if (
@@ -37,10 +37,11 @@ install_mhcnuggets <- function(
     )
     setwd(curwd)
   }
-  testthat::expect_true(dir.exists(mhcnuggetsr_folder))
+  testthat::expect_true(dir.exists(mhcnuggets_folder))
 
   ormr::install_python_package(
     ormr_folder_name = "python3",
     package_name = "mhcnuggets"
   )
+  invisible(mhcnuggetsr_folder)
 }
