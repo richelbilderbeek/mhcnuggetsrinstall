@@ -5,17 +5,9 @@
 \title{Uninstall the MHCnuggets Python package.}
 \usage{
 uninstall_mhcnuggets(
-  folder_name = mhcnuggetsr::get_default_mhcnuggets_folder(),
-  mhcnuggets_url = mhcnuggetsr::get_mhcnuggets_url()
+  mhcnuggetsr_folder = mhcnuggetsr::get_default_mhcnuggets_folder(),
+  ormr_folder_name = "python3"
 )
-}
-\arguments{
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained
-by \link[mhcnuggetsr]{get_default_mhcnuggets_folder}}
-
-\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
 \description{
 Uninstall the MHCnuggets Python package.
