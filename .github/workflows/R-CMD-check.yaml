@@ -100,6 +100,12 @@ jobs:
         run: remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")
         shell: Rscript {0}
 
+      - name: Show mhcnuggetsrinstall::install_mhcnuggets
+        run: Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets'
+
+      - name: Show mhcnuggetsr::is_mhcnuggets_installed
+        run: Rscript -e 'mhcnuggetsr::is_mhcnuggets_installed'
+
       - name: Install MHCnuggets
         run: mhcnuggetsrinstall::install_mhcnuggets()
         shell: Rscript {0}
