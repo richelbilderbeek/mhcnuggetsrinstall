@@ -12,7 +12,7 @@ Description:
 License: GPL-3
 Imports:
     devtools,
-    mhcnuggetsr,
+    mhcnuggetsr (>= 1.2.1),
     ormr,
     rappdirs,
     reticulate,
