@@ -31,8 +31,8 @@ jobs:
           remotes::install_cran("covr")
           remotes::install_cran("lintr")
           remotes::install_github("MangoTheCat/goodpractice")
-          remotes::install_github("richelbilderbeek/mhcnuggetsr")
           remotes::install_github("richelbilderbeek/ormr")
+          remotes::install_github("richelbilderbeek/mhcnuggetsr")
         shell: Rscript {0}
 
       - name: Install mhcnuggetsrinstall
