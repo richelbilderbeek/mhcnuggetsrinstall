@@ -1,0 +1,59 @@
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: "0 0 12 * *"
+
+name: R-CMD-check
+
+jobs:
+  check_can_install:
+
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@v2
+
+      - name: Install libcurl4-openssl-dev
+        run: sudo apt install -qq libcurl4-openssl-dev
+
+      - name: Install libharfbuzz-dev libfribidi-dev
+        run: sudo apt install -qq libharfbuzz-dev libfribidi-dev
+
+      - name: Install dependencies
+        run: |
+          install.packages(c("remotes", "rcmdcheck"))
+          remotes::install_deps(dependencies = TRUE)
+          remotes::install_cran("rcmdcheck")
+          remotes::install_cran("covr")
+          remotes::install_cran("lintr")
+          remotes::install_github("MangoTheCat/goodpractice")
+          remotes::install_github("richelbilderbeek/mhcnuggetsr")
+          remotes::install_github("richelbilderbeek/ormr")
+        shell: Rscript {0}
+
+      - name: Install mhcnuggetsrinstall
+        run: remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")
+        shell: Rscript {0}
+
+      - name: Show mhcnuggetsrinstall::install_mhcnuggets
+        run: Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets'
+
+      - name: Show mhcnuggetsr::is_mhcnuggets_installed
+        run: Rscript -e 'mhcnuggetsr::is_mhcnuggets_installed'
+
+      - name: Install MHCnuggets
+        run: mhcnuggetsrinstall::install_mhcnuggets()
+        shell: Rscript {0}
+
+      - name: Report
+        run: mhcnuggetsr::mhcnuggetsr_report()
+        shell: Rscript {0}
+
+      - name: Verify MHCnuggets is installed
+        run: mhcnuggetsr::check_mhcnuggets_installation()
+        shell: Rscript {0}
+
