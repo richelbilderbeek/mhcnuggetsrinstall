@@ -36,9 +36,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck"))
+          install.packages(c("remotes", "rcmdcheck", "semver"))
           remotes::install_github("richelbilderbeek/plinkr")
-          install.packages("semver")
           remotes::install_github("richelbilderbeek/ormr")
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
@@ -52,6 +51,12 @@ jobs:
         env:
           INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
         run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")'; fi
+
+      - name: Show 'mhcnuggetsr::is_mhcnuggets_installed'
+        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsr::is_mhcnuggets_installed'; fi
+
+      - name: Show 'mhcnuggetsrinstall::install_mhcnuggets'
+        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets'; fi
 
       - name: Install MHCnuggets
         env:
