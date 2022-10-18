@@ -2,9 +2,9 @@ on:
   push:
   pull_request:
   schedule:
-  - cron: "0 0 12 * *"
+  - cron: "0 0 29 * *"
 
-name: R-CMD-check
+name: can_install
 
 jobs:
   check_can_install:
