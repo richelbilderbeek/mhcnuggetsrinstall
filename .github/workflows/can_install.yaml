@@ -2,7 +2,7 @@ on:
   push:
   pull_request:
   schedule:
-  - cron: "0 0 29 * *"
+  - cron: "0 0 13 * *"
 
 name: can_install
 
